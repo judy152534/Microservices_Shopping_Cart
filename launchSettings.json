@@ -6,7 +6,10 @@
         "basket.api": "StartWithoutDebugging",
         "basketdb": "StartWithoutDebugging",
         "catalog.api": "StartWithoutDebugging",
-        "catalogdb": "StartWithoutDebugging"
+        "catalogdb": "StartWithoutDebugging",
+        "discount.api": "StartWithoutDebugging",
+        "discountdb": "StartWithoutDebugging",
+        "pgadmin": "StartWithoutDebugging"
       },
       "commandVersion": "1.0"
     }
