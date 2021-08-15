@@ -3,11 +3,11 @@
     "Docker Compose": {
       "commandName": "DockerCompose",
       "serviceActions": {
-        "basket.api": "StartWithoutDebugging",
+        "basket.api": "StartDebugging",
         "basketdb": "StartWithoutDebugging",
-        "catalog.api": "StartWithoutDebugging",
+        "catalog.api": "StartDebugging",
         "catalogdb": "StartWithoutDebugging",
-        "discount.api": "StartWithoutDebugging",
+        "discount.api": "StartDebugging",
         "discountdb": "StartWithoutDebugging",
         "pgadmin": "StartWithoutDebugging"
       },

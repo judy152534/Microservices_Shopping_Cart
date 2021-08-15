@@ -18,14 +18,32 @@ namespace Discount.API.Repository
             _configuration = configuration;
         }
 
-        public Task<bool> CreateCoupon(Coupon coupon)
+        public async Task<bool> CreateCoupon(Coupon coupon)
         {
-            throw new NotImplementedException();
+            using var connection = new NpgsqlConnection
+                (_configuration.GetValue<string>("DatabaseSettings:ConnectionString"));
+
+            var sql = @"Insert into Coupon (ProductName, Description, Amount) VALUES (@ProductName, @Description, @Amount);";
+            int outcome = await connection.ExecuteAsync(sql, coupon);
+            if (outcome == 0) 
+            {
+                return false;
+            }
+            return true;
         }
 
-        public Task<bool> DeleteCoupon(string productName)
+        public async Task<bool> DeleteCoupon(string productName)
         {
-            throw new NotImplementedException();
+            using var connection = new NpgsqlConnection
+              (_configuration.GetValue<string>("DatabaseSettings:ConnectionString"));
+
+            var sql = @"DELETE FROM Coupon WHERE ProductName = @ProductName;";
+            var outcome = await connection.ExecuteAsync(sql, new { ProductName = productName });
+            if (outcome == 0)
+            {
+                return false;
+            }
+            return true;
         }
 
         public async Task<Coupon> GetCoupon(string productName)
@@ -33,7 +51,7 @@ namespace Discount.API.Repository
             using var connection = new NpgsqlConnection
                 (_configuration.GetValue<string>("DatabaseSettings:ConnectionString"));
 
-            var sql = @"select ProductName, Description, Amount from Coupon where ProductName = @ProductName;";
+            var sql = @"Select ProductName, Description, Amount from Coupon where ProductName = @ProductName;";
             var coupon = await connection.QuerySingleOrDefaultAsync<Coupon>(sql, new { ProductName = productName });
 
             if (coupon == null)
@@ -42,9 +60,18 @@ namespace Discount.API.Repository
             return coupon;
         }
 
-        public Task<bool> UpdateCoupon(Coupon coupon)
+        public async Task<bool> UpdateCoupon(Coupon coupon)
         {
-            throw new NotImplementedException();
+            using var connection = new NpgsqlConnection
+               (_configuration.GetValue<string>("DatabaseSettings:ConnectionString"));
+
+            var sql = @"Update Coupon SET ProductName = @ProductName, Description = @Description, Amount = @Amount WHERE Id = @Id;";
+            var outcome = await connection.ExecuteAsync(sql, coupon);
+            if (outcome == 0)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }
