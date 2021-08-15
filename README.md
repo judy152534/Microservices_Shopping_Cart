@@ -6,3 +6,7 @@ Catalog API :
 
 Basket API :
 1. use Redis for distributed cache
+
+Discount API :
+1. add basic CURD with PostgresDB 
+2. docker-compose
