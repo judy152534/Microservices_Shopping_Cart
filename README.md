@@ -13,4 +13,4 @@ Discount API :
 
 Discount gRPC :
 
-1.provide server method & communicate with Basket.API
+  1.provide server method & communicate with Basket.API
