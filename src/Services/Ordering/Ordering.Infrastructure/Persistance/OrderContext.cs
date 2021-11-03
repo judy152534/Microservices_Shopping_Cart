@@ -17,44 +17,32 @@ namespace Ordering.Infrastructure.Persistance
         }
 
         public DbSet<Order> Orders { get; set; }
+       
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             foreach (var entry in ChangeTracker.Entries<EntityBase>())
             {
                 switch (entry.State)
                 {
-                    // todo User Identity
                     case EntityState.Added:
                         entry.Entity.CreateDate = DateTime.Now;
-                        entry.Entity.CreatedBy = "Nobody";
+                        entry.Entity.CreatedBy = "swn";
                         break;
                     case EntityState.Modified:
                         entry.Entity.LastModifiedDate = DateTime.Now;
-                        entry.Entity.LastModifiedBy = "Nobody";
+                        entry.Entity.LastModifiedBy = "swn";
                         break;
                 }
             }
-            return base.SaveChangesAsync(cancellationToken);
-        }
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    if (!optionsBuilder.IsConfigured)
-        //    {
-        //        string connectionString =
-        //            "Server=localhost;Database=OrderDb;User Id=sa;Password=SwN12345678;";
 
-        //        optionsBuilder.UseSqlServer(connectionString);
-        //    }
-        //}
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    base.OnModelCreating(modelBuilder);
-        //    modelBuilder.Entity<Order>(entity =>
-        //    {
-        //        entity.Property(e => e.TotalPrice)
-        //             .HasConversion<decimal>()
-        //             .IsRequired();
-        //    });
-        //}
+            return base.SaveChangesAsync(cancellationToken);
+        } 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Order>()
+                .Property(p => p.TotalPrice)
+                .HasColumnType("decimal(18,2)");
+        }
     }
 }
