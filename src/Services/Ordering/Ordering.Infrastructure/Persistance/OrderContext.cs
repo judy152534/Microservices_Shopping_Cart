@@ -13,7 +13,7 @@ namespace Ordering.Infrastructure.Persistance
     public class OrderContext : DbContext
     {
         public OrderContext(DbContextOptions<OrderContext> options) : base(options)
-        {      
+        {
         }
 
         public DbSet<Order> Orders { get; set; }
@@ -21,7 +21,7 @@ namespace Ordering.Infrastructure.Persistance
         {
             foreach (var entry in ChangeTracker.Entries<EntityBase>())
             {
-                switch (entry.State) 
+                switch (entry.State)
                 {
                     // todo User Identity
                     case EntityState.Added:
@@ -36,5 +36,25 @@ namespace Ordering.Infrastructure.Persistance
             }
             return base.SaveChangesAsync(cancellationToken);
         }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    if (!optionsBuilder.IsConfigured)
+        //    {
+        //        string connectionString =
+        //            "Server=localhost;Database=OrderDb;User Id=sa;Password=SwN12345678;";
+
+        //        optionsBuilder.UseSqlServer(connectionString);
+        //    }
+        //}
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    base.OnModelCreating(modelBuilder);
+        //    modelBuilder.Entity<Order>(entity =>
+        //    {
+        //        entity.Property(e => e.TotalPrice)
+        //             .HasConversion<decimal>()
+        //             .IsRequired();
+        //    });
+        //}
     }
 }
