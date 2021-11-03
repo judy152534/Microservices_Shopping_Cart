@@ -32,10 +32,6 @@ namespace Ordering.API
             services.AddApplicationService();
             services.AddInfrastructureServices(Configuration);
 
-            services.AddDbContext<OrderContext>(options =>
-             options.UseSqlServer(
-                 Configuration.GetConnectionString("OrderingConnectionString")));
-
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
