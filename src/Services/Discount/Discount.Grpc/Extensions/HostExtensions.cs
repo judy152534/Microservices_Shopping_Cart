@@ -21,7 +21,7 @@ namespace Discount.Grpc.Extensions
         /// <returns></returns>
         public static IHost MigrateDatabase<TContext>(this IHost host, int? retry = 0)
         {
-            // 當Discount.API已啟動，但discountdb還沒準備好，會重試
+            // 當Discount.Grpc已啟動，但discountdb還沒準備好，會重試
             // 計數器:從0開始
             int retryForAvailability = retry.Value;
 
