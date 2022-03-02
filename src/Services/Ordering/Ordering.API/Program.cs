@@ -20,11 +20,10 @@ namespace Ordering.API
 
             // pass ActionType into method
             host.MigrateDatabase<OrderContext>((context, service) =>
-                   {
-                       var logger = service.GetService<ILogger<SeedOrderContext>>();
-                       SeedOrderContext.SeedAsync(context, logger).Wait();
-                   }
-            )
+            {
+                var logger = service.GetService<ILogger<SeedOrderContext>>();
+                SeedOrderContext.SeedAsync(context, logger).Wait();
+            })
             .Run();
         }
 

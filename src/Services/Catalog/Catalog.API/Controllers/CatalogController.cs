@@ -60,7 +60,7 @@ namespace Catalog.API.Controllers
         public async Task<ActionResult<Product>> CreateProduct([FromBody]Product product) 
         {
             await _productRepository.CreateProduct(product);
-            return CreatedAtRoute("GetProduct", new { id = product.Id }, product);   //可從Response headers的Location找到新創資料的位置
+            return CreatedAtRoute("GetProduct", new { id = product.Id }, product);  //可從Response headers的Location找到新創資料的位置
         }
 
         [HttpPut]
