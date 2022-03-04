@@ -41,7 +41,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventBus.Messages", "src\Bu
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateways", "ApiGateways", "{C54FB87A-1CAD-44D9-A4E5-38E481D1110F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OcelotApiGateway", "src\ApiGateways\OcelotApiGateway\OcelotApiGateway.csproj", "{3F8B626F-DF53-4B02-B288-66EC4E6420F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OcelotApiGateway", "src\ApiGateways\OcelotApiGateway\OcelotApiGateway.csproj", "{3F8B626F-DF53-4B02-B288-66EC4E6420F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shopping.Aggregator", "src\ApiGateways\Shopping.Aggregator\Shopping.Aggregator.csproj", "{BCE6906B-F570-4AF9-AEB8-48BCA1225126}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -97,6 +99,10 @@ Global
 		{3F8B626F-DF53-4B02-B288-66EC4E6420F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F8B626F-DF53-4B02-B288-66EC4E6420F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F8B626F-DF53-4B02-B288-66EC4E6420F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCE6906B-F570-4AF9-AEB8-48BCA1225126}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCE6906B-F570-4AF9-AEB8-48BCA1225126}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCE6906B-F570-4AF9-AEB8-48BCA1225126}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCE6906B-F570-4AF9-AEB8-48BCA1225126}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -118,6 +124,7 @@ Global
 		{A266A3D9-77E2-4F07-8306-0D9555A7EE5C} = {8BB10DAD-1D5F-4378-8B0F-944E7F136F8A}
 		{36F237F6-7433-4243-9F19-8C1E3DFB0C57} = {4429BEDF-6179-4478-8024-8EA346878547}
 		{3F8B626F-DF53-4B02-B288-66EC4E6420F7} = {C54FB87A-1CAD-44D9-A4E5-38E481D1110F}
+		{BCE6906B-F570-4AF9-AEB8-48BCA1225126} = {C54FB87A-1CAD-44D9-A4E5-38E481D1110F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9C30EAC8-54F5-44B6-AC36-05E5B5EDA88F}
