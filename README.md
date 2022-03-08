@@ -1,5 +1,7 @@
 # Microservices
 
+using .net6.0
+
 Catalog API : 
 1. add basic CURD with mongoDB
 2. docker-compose
