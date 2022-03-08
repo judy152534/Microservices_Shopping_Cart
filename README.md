@@ -22,3 +22,6 @@ Order API :
 
 RabbitMQ:
 1. Pub/sub :Bridge between Basket API & Order API
+
+API gateway:
+Using Ocelot
