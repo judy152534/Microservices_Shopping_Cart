@@ -16,7 +16,7 @@ namespace Shopping.Aggregator.Services
 
         public async Task<BasketModel> GetBasketByUsername(string userName)
         {
-            var response = await _client.GetAsync($"/api/v1/Basket/{userName}"));
+            var response = await _client.GetAsync($"/api/v1/Basket/{userName}");
 
             return await response.ReadContentAs<BasketModel>();
         }

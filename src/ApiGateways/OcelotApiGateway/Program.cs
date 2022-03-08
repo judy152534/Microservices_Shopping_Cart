@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace OcelotApiGateway
 {
+    
     public class Program
     {
         public static void Main(string[] args)
@@ -25,9 +26,7 @@ namespace OcelotApiGateway
                 })
                 .ConfigureAppConfiguration((hostingContext, config) =>
                 {
-                    //config.SetBasePath(hostingContext.HostingEnvironment.ContentRootPath);
                     config.AddJsonFile($"ocelot.{hostingContext.HostingEnvironment.EnvironmentName}.json", true, true);
-                    //config.AddEnvironmentVariables();   
                 })
                 .ConfigureLogging((hostingContext, loggerBuilder) => 
                 {
